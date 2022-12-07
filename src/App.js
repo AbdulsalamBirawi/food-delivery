@@ -1,6 +1,8 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable no-unused-vars */
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import { Header, MainContiner, CreateContainer, Menu } from "./components";
+import { Header, MainContiner, CreateContainer } from "./components";
 import { AnimatePresence } from "framer-motion";
 import { useStateValue } from "./context/StateProvider";
 import { getAllFoodItems } from "./utils/FirebaseFunction";
@@ -8,7 +10,7 @@ import { useEffect } from "react";
 import { actionType } from "./context/Reducer";
 
 function App() {
-  const [{ foodItems }, dispatch] = useStateValue();
+  const [, dispatch] = useStateValue();
   const fetchData = async () => {
     await getAllFoodItems().then((data) =>
       dispatch({
